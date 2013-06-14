@@ -21,8 +21,8 @@
     [super viewDidLoad];
     
     _mapView.delegate = self;
-    _mapView.showsUserLocation = YES;
-    _mapView.mapType = MKMapTypeHybrid;
+    [_mapView setShowsUserLocation: YES];
+    [_mapView setMapType: MKMapTypeHybrid];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,16 +39,40 @@
     
     // Initialize data model
     _theData = [[TEDataModel alloc] init];
+    NSThread* myThread = [[NSThread alloc] initWithTarget:self
+                                                 selector:@selector(addAndUpdateAnnotations)
+                                                   object:nil];
+    [myThread start];  // Actually create the thread
+  }
+
+- (void) addAndUpdateAnnotations
+{
+    while(1)
+    {
+        NSArray *temp = [[NSArray alloc] initWithArray: _theData.annotations];
+        [_mapView removeAnnotations: temp];
+        [_theData.annotations removeAllObjects];
+        [self parse];
     
+        // Deal with annotations
+        NSArray *theAnnotations = [self makeAnnotationsList];
+        [_mapView addAnnotations:theAnnotations];
+        [_mapView showAnnotations: theAnnotations animated: YES];
+        temp = nil;
+        theAnnotations = nil;
+        sleep(2);
+    }
+}
+
+- (void) parse
+{
     // Start parsing
     NSURL *theUrl = [[NSURL alloc] initWithString: @"http://localhost:8000/maptap/pull"];
     NSXMLParser *parse = [[NSXMLParser alloc] initWithContentsOfURL: theUrl];
     parse.delegate = self;
     [parse parse];
+    NSLog(@"Done parsing");
     
-    // Deal with annotations
-    NSArray *theAnnotations = [self makeAnnotationsList];
-    [_mapView addAnnotations:theAnnotations];
 }
 
 - (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
@@ -126,6 +150,7 @@
         [theData.annotations addObject: bar];
     } */
     
+    // Anything over 1000 may not work
     return _theData.annotations;
 }
 

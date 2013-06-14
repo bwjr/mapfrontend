@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F8091AE1686D7D700BF9035 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8091AD1686D7D700BF9035 /* CoreLocation.framework */; };
 		0FAF7AD916817FB60034BE1F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FAF7AD816817FB60034BE1F /* UIKit.framework */; };
 		0FAF7ADB16817FB60034BE1F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FAF7ADA16817FB60034BE1F /* Foundation.framework */; };
 		0FAF7ADD16817FB60034BE1F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FAF7ADC16817FB60034BE1F /* CoreGraphics.framework */; };
@@ -19,9 +20,12 @@
 		0FAF7AF216817FB70034BE1F /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FAF7AF016817FB70034BE1F /* MainStoryboard_iPhone.storyboard */; };
 		0FAF7AF516817FB70034BE1F /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FAF7AF316817FB70034BE1F /* MainStoryboard_iPad.storyboard */; };
 		0FAF7AF816817FB70034BE1F /* TEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAF7AF716817FB70034BE1F /* TEViewController.m */; };
+		0FAF7AFF168184720034BE1F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FAF7AFE168184720034BE1F /* MapKit.framework */; };
+		0FC62A141685244B001963BD /* TEDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC62A131685244B001963BD /* TEDataModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F8091AD1686D7D700BF9035 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		0FAF7AD416817FB60034BE1F /* MapTap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapTap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FAF7AD816817FB60034BE1F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0FAF7ADA16817FB60034BE1F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -39,6 +43,10 @@
 		0FAF7AF416817FB70034BE1F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		0FAF7AF616817FB70034BE1F /* TEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TEViewController.h; sourceTree = "<group>"; };
 		0FAF7AF716817FB70034BE1F /* TEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TEViewController.m; sourceTree = "<group>"; };
+		0FAF7AFE168184720034BE1F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0FAF7B00168184850034BE1F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0FC62A121685244B001963BD /* TEDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEDataModel.h; sourceTree = "<group>"; };
+		0FC62A131685244B001963BD /* TEDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEDataModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F8091AE1686D7D700BF9035 /* CoreLocation.framework in Frameworks */,
+				0FAF7AFF168184720034BE1F /* MapKit.framework in Frameworks */,
 				0FAF7AD916817FB60034BE1F /* UIKit.framework in Frameworks */,
 				0FAF7ADB16817FB60034BE1F /* Foundation.framework in Frameworks */,
 				0FAF7ADD16817FB60034BE1F /* CoreGraphics.framework in Frameworks */,
@@ -58,6 +68,7 @@
 		0FAF7AC916817FB60034BE1F = {
 			isa = PBXGroup;
 			children = (
+				0FAF7AFE168184720034BE1F /* MapKit.framework */,
 				0FAF7ADE16817FB60034BE1F /* MapTap */,
 				0FAF7AD716817FB60034BE1F /* Frameworks */,
 				0FAF7AD516817FB60034BE1F /* Products */,
@@ -75,6 +86,7 @@
 		0FAF7AD716817FB60034BE1F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0FAF7B00168184850034BE1F /* MapKit.framework */,
 				0FAF7AD816817FB60034BE1F /* UIKit.framework */,
 				0FAF7ADA16817FB60034BE1F /* Foundation.framework */,
 				0FAF7ADC16817FB60034BE1F /* CoreGraphics.framework */,
@@ -88,6 +100,8 @@
 				0FAF7AE716817FB60034BE1F /* TEAppDelegate.h */,
 				0FAF7AE816817FB60034BE1F /* TEAppDelegate.m */,
 				0FAF7AF016817FB70034BE1F /* MainStoryboard_iPhone.storyboard */,
+				0FC62A121685244B001963BD /* TEDataModel.h */,
+				0FC62A131685244B001963BD /* TEDataModel.m */,
 				0FAF7AF316817FB70034BE1F /* MainStoryboard_iPad.storyboard */,
 				0FAF7AF616817FB70034BE1F /* TEViewController.h */,
 				0FAF7AF716817FB70034BE1F /* TEViewController.m */,
@@ -106,6 +120,7 @@
 				0FAF7AEA16817FB60034BE1F /* Default.png */,
 				0FAF7AEC16817FB70034BE1F /* Default@2x.png */,
 				0FAF7AEE16817FB70034BE1F /* Default-568h@2x.png */,
+				0F8091AD1686D7D700BF9035 /* CoreLocation.framework */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -137,7 +152,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = TE;
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Billy Rathje";
 			};
 			buildConfigurationList = 0FAF7ACE16817FB60034BE1F /* Build configuration list for PBXProject "MapTap" */;
@@ -181,6 +196,7 @@
 				0FAF7AE516817FB60034BE1F /* main.m in Sources */,
 				0FAF7AE916817FB60034BE1F /* TEAppDelegate.m in Sources */,
 				0FAF7AF816817FB70034BE1F /* TEViewController.m in Sources */,
+				0FC62A141685244B001963BD /* TEDataModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +323,7 @@
 				0FAF7AFD16817FB70034BE1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
