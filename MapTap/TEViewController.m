@@ -12,9 +12,13 @@
 
 @property NSString *buffer;
 
+
 @end
 
 @implementation TEViewController
+
+NSString *push_URL = @"http://localhost:8000/maptap/push/";
+NSString *pull_URL = @"http://localhost:8000/maptap/pull/";
 
 - (void)viewDidLoad
 {
@@ -43,10 +47,13 @@
                                                  selector:@selector(addAndUpdateAnnotations)
                                                    object:nil];
     [myThread start];  // Actually create the thread
-  }
+    
+    [self sendHTTPMessageFromCurrentLocation: @"Well" withComment:@"Done"];
+}
 
 - (void) addAndUpdateAnnotations
 {
+/*
     while(1)
     {
         NSArray *temp = [[NSArray alloc] initWithArray: _theData.annotations];
@@ -61,18 +68,41 @@
         temp = nil;
         theAnnotations = nil;
         sleep(2);
-    }
+    } */
 }
 
 - (void) parse
 {
     // Start parsing
-    NSURL *theUrl = [[NSURL alloc] initWithString: @"http://localhost:8000/maptap/pull"];
+    NSURL *theUrl = [NSURL URLWithString: pull_URL];
     NSXMLParser *parse = [[NSXMLParser alloc] initWithContentsOfURL: theUrl];
     parse.delegate = self;
     [parse parse];
     NSLog(@"Done parsing");
     
+}
+
+- (void) sendHTTPMessageFromCurrentLocation: (NSString*) title withComment: (NSString*) comment
+{
+
+    title = CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (__bridge CFStringRef)(title), NULL, CFSTR(":/?#[]@!$&'()*+,;="), kCFStringEncodingUTF8));
+    
+    comment = CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (__bridge CFStringRef)(comment), NULL, CFSTR(":/?#[]@!$&'()*+,;="), kCFStringEncodingUTF8));
+    
+    NSString *bodyData = [NSString stringWithFormat: @"%@%f%@%f%@%@%@%@", @"latitude=", 1.0f, @"&longitude=", 1.0f, @"&title=", title, @"&comment=", comment];
+    
+    NSMutableURLRequest *postRequest =
+        [NSMutableURLRequest requestWithURL:[NSURL URLWithString: push_URL]];
+    
+    // Set the request's content type to application/x-www-form-urlencoded
+    [postRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    // Designate the request a POST request and specify its body data
+    [postRequest setHTTPMethod:@"POST"];
+    [postRequest setHTTPBody:[NSData dataWithBytes:[bodyData UTF8String] length:[bodyData length]]];
+    // Initialize the NSURLConnection and proceed as usual
+    [[NSURLConnection alloc] initWithRequest: postRequest delegate: self];
+    NSLog(bodyData);
 }
 
 - (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict

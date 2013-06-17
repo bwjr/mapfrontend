@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapTap/TEViewController.m"
-            timestampString = "392943199.211748"
+            timestampString = "393187776.831179"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "-makeAnnotationsList"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "-mapView:didDeselectAnnotationView:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapTap/TEViewController.m"
-            timestampString = "392943199.211748"
+            timestampString = "393187776.831179"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "-makeAnnotationsList"
             landmarkType = "5">
          </BreakpointContent>
@@ -120,13 +120,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapTap/TEViewController.m"
-            timestampString = "392943199.211748"
+            timestampString = "393187776.831179"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
-            landmarkName = "-makeAnnotationsList"
-            landmarkType = "5">
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "@implementation TEViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -152,12 +152,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapTap/TEViewController.m"
-            timestampString = "392943199.211748"
+            timestampString = "393187776.831179"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "-parser:foundCharacters:"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "-parser:didStartElement:namespaceURI:qualifiedName:attributes:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -168,11 +168,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapTap/TEViewController.m"
-            timestampString = "392942800.475457"
+            timestampString = "393185292.992898"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "-addAndUpdateAnnotations"
             landmarkType = "5">
          </BreakpointContent>
@@ -184,12 +184,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapTap/TEViewController.m"
-            timestampString = "392942800.475457"
+            timestampString = "393185292.992898"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "-mapView:didUpdateUserLocation:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapTap/TEViewController.m"
+            timestampString = "393185292.992898"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "-parse"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

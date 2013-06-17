@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "TEDataModel.h"
 
-@interface TEViewController : UIViewController <MKMapViewDelegate, NSXMLParserDelegate>
+@interface TEViewController : UIViewController <MKMapViewDelegate, NSXMLParserDelegate, NSURLConnectionDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
