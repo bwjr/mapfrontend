@@ -22,6 +22,7 @@
 		0FAF7AF816817FB70034BE1F /* TEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAF7AF716817FB70034BE1F /* TEViewController.m */; };
 		0FAF7AFF168184720034BE1F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FAF7AFE168184720034BE1F /* MapKit.framework */; };
 		0FC62A141685244B001963BD /* TEDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC62A131685244B001963BD /* TEDataModel.m */; };
+		0FCFB2FB177122B800861D29 /* TEClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCFB2FA177122B800861D29 /* TEClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,12 +42,31 @@
 		0FAF7AEE16817FB70034BE1F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0FAF7AF116817FB70034BE1F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		0FAF7AF416817FB70034BE1F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		0FAF7AF616817FB70034BE1F /* TEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TEViewController.h; sourceTree = "<group>"; };
 		0FAF7AF716817FB70034BE1F /* TEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TEViewController.m; sourceTree = "<group>"; };
 		0FAF7AFE168184720034BE1F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		0FAF7B00168184850034BE1F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		0FC62A121685244B001963BD /* TEDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEDataModel.h; sourceTree = "<group>"; };
 		0FC62A131685244B001963BD /* TEDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEDataModel.m; sourceTree = "<group>"; };
+		0FCFB2DF17711F4800861D29 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		0FCFB2E017711F4800861D29 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		0FCFB2E117711F4800861D29 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		0FCFB2E317711F4800861D29 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0FCFB2E517711F4800861D29 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		0FCFB2E717711F4800861D29 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		0FCFB2E817711F4800861D29 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0FCFB2E917711F4800861D29 /* MapTap-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MapTap-Info.plist"; sourceTree = "<group>"; };
+		0FCFB2EA17711F4800861D29 /* MapTap-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MapTap-Prefix.pch"; sourceTree = "<group>"; };
+		0FCFB2EB17711F4800861D29 /* TEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TEAppDelegate.h; sourceTree = "<group>"; };
+		0FCFB2EC17711F4800861D29 /* TEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TEAppDelegate.m; sourceTree = "<group>"; };
+		0FCFB2EF17711F4800861D29 /* TEDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TEDataModel.h; sourceTree = "<group>"; };
+		0FCFB2F017711F4800861D29 /* TEDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TEDataModel.m; sourceTree = "<group>"; };
+		0FCFB2F117711F4800861D29 /* TEOverlayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TEOverlayViewController.h; sourceTree = "<group>"; };
+		0FCFB2F217711F4800861D29 /* TEOverlayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TEOverlayViewController.m; sourceTree = "<group>"; };
+		0FCFB2F317711F4800861D29 /* TEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TEViewController.h; sourceTree = "<group>"; };
+		0FCFB2F417711F4800861D29 /* TEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TEViewController.m; sourceTree = "<group>"; };
+		0FCFB2F51771206800861D29 /* TEClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEClient.h; sourceTree = "<group>"; };
+		0FCFB2F91771216300861D29 /* TEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEViewController.h; sourceTree = "<group>"; };
+		0FCFB2FA177122B800861D29 /* TEClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +106,7 @@
 		0FAF7AD716817FB60034BE1F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0F8091AD1686D7D700BF9035 /* CoreLocation.framework */,
 				0FAF7B00168184850034BE1F /* MapKit.framework */,
 				0FAF7AD816817FB60034BE1F /* UIKit.framework */,
 				0FAF7ADA16817FB60034BE1F /* Foundation.framework */,
@@ -103,8 +124,11 @@
 				0FC62A121685244B001963BD /* TEDataModel.h */,
 				0FC62A131685244B001963BD /* TEDataModel.m */,
 				0FAF7AF316817FB70034BE1F /* MainStoryboard_iPad.storyboard */,
-				0FAF7AF616817FB70034BE1F /* TEViewController.h */,
+				0FCFB2F91771216300861D29 /* TEViewController.h */,
 				0FAF7AF716817FB70034BE1F /* TEViewController.m */,
+				0FCFB2F51771206800861D29 /* TEClient.h */,
+				0FCFB2FA177122B800861D29 /* TEClient.m */,
+				0FCFB2DE17711F4800861D29 /* MapTap */,
 				0FAF7ADF16817FB60034BE1F /* Supporting Files */,
 			);
 			path = MapTap;
@@ -120,9 +144,32 @@
 				0FAF7AEA16817FB60034BE1F /* Default.png */,
 				0FAF7AEC16817FB70034BE1F /* Default@2x.png */,
 				0FAF7AEE16817FB70034BE1F /* Default-568h@2x.png */,
-				0F8091AD1686D7D700BF9035 /* CoreLocation.framework */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0FCFB2DE17711F4800861D29 /* MapTap */ = {
+			isa = PBXGroup;
+			children = (
+				0FCFB2DF17711F4800861D29 /* Default-568h@2x.png */,
+				0FCFB2E017711F4800861D29 /* Default.png */,
+				0FCFB2E117711F4800861D29 /* Default@2x.png */,
+				0FCFB2E217711F4800861D29 /* InfoPlist.strings */,
+				0FCFB2E417711F4800861D29 /* MainStoryboard_iPad.storyboard */,
+				0FCFB2E617711F4800861D29 /* MainStoryboard_iPhone.storyboard */,
+				0FCFB2E817711F4800861D29 /* main.m */,
+				0FCFB2E917711F4800861D29 /* MapTap-Info.plist */,
+				0FCFB2EA17711F4800861D29 /* MapTap-Prefix.pch */,
+				0FCFB2EB17711F4800861D29 /* TEAppDelegate.h */,
+				0FCFB2EC17711F4800861D29 /* TEAppDelegate.m */,
+				0FCFB2EF17711F4800861D29 /* TEDataModel.h */,
+				0FCFB2F017711F4800861D29 /* TEDataModel.m */,
+				0FCFB2F117711F4800861D29 /* TEOverlayViewController.h */,
+				0FCFB2F217711F4800861D29 /* TEOverlayViewController.m */,
+				0FCFB2F317711F4800861D29 /* TEViewController.h */,
+				0FCFB2F417711F4800861D29 /* TEViewController.m */,
+			);
+			name = MapTap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +243,7 @@
 				0FAF7AE516817FB60034BE1F /* main.m in Sources */,
 				0FAF7AE916817FB60034BE1F /* TEAppDelegate.m in Sources */,
 				0FAF7AF816817FB70034BE1F /* TEViewController.m in Sources */,
+				0FCFB2FB177122B800861D29 /* TEClient.m in Sources */,
 				0FC62A141685244B001963BD /* TEDataModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,6 +273,30 @@
 				0FAF7AF416817FB70034BE1F /* en */,
 			);
 			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		0FCFB2E217711F4800861D29 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0FCFB2E317711F4800861D29 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0FCFB2E417711F4800861D29 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0FCFB2E517711F4800861D29 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		0FCFB2E617711F4800861D29 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0FCFB2E717711F4800861D29 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -17,16 +17,22 @@
 
 @implementation TEViewController
 
-NSString *push_URL = @"http://localhost:8000/maptap/push/";
-NSString *pull_URL = @"http://localhost:8000/maptap/pull/";
+- (id) init
+{
+    if(self = [super init])
+    {
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    _HTTPClient = [[TEClient alloc] init];
     _mapView.delegate = self;
     [_mapView setShowsUserLocation: YES];
     [_mapView setMapType: MKMapTypeHybrid];
+    _container.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,7 +54,7 @@ NSString *pull_URL = @"http://localhost:8000/maptap/pull/";
                                                    object:nil];
     [myThread start];  // Actually create the thread
     
-    [self sendHTTPMessageFromCurrentLocation: @"Well" withComment:@"Done"];
+    [_HTTPClient sendHTTPMessageFromCurrentLocation: @"Well" withComment:@"Done"];
 }
 
 - (void) addAndUpdateAnnotations
@@ -59,7 +65,7 @@ NSString *pull_URL = @"http://localhost:8000/maptap/pull/";
         NSArray *temp = [[NSArray alloc] initWithArray: _theData.annotations];
         [_mapView removeAnnotations: temp];
         [_theData.annotations removeAllObjects];
-        [self parse];
+        [_HTTPClient parse];
     
         // Deal with annotations
         NSArray *theAnnotations = [self makeAnnotationsList];
@@ -69,86 +75,7 @@ NSString *pull_URL = @"http://localhost:8000/maptap/pull/";
         theAnnotations = nil;
         sleep(2);
     } */
-}
-
-- (void) parse
-{
-    // Start parsing
-    NSURL *theUrl = [NSURL URLWithString: pull_URL];
-    NSXMLParser *parse = [[NSXMLParser alloc] initWithContentsOfURL: theUrl];
-    parse.delegate = self;
-    [parse parse];
-    NSLog(@"Done parsing");
-    
-}
-
-- (void) sendHTTPMessageFromCurrentLocation: (NSString*) title withComment: (NSString*) comment
-{
-
-    title = CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (__bridge CFStringRef)(title), NULL, CFSTR(":/?#[]@!$&'()*+,;="), kCFStringEncodingUTF8));
-    
-    comment = CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (__bridge CFStringRef)(comment), NULL, CFSTR(":/?#[]@!$&'()*+,;="), kCFStringEncodingUTF8));
-    
-    NSString *bodyData = [NSString stringWithFormat: @"%@%f%@%f%@%@%@%@", @"latitude=", 1.0f, @"&longitude=", 1.0f, @"&title=", title, @"&comment=", comment];
-    
-    NSMutableURLRequest *postRequest =
-        [NSMutableURLRequest requestWithURL:[NSURL URLWithString: push_URL]];
-    
-    // Set the request's content type to application/x-www-form-urlencoded
-    [postRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    
-    // Designate the request a POST request and specify its body data
-    [postRequest setHTTPMethod:@"POST"];
-    [postRequest setHTTPBody:[NSData dataWithBytes:[bodyData UTF8String] length:[bodyData length]]];
-    // Initialize the NSURLConnection and proceed as usual
-    [[NSURLConnection alloc] initWithRequest: postRequest delegate: self];
-    NSLog(bodyData);
-}
-
-- (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
-{
-    if([elementName hasPrefix: @"object"])
-    {
-        [[_theData annotations] addObject: [[MKPointAnnotation alloc] init]];
-    }
-    
-    if([elementName hasPrefix: @"field"])
-    {
-        if([[attributeDict valueForKey: @"name"] isEqualToString: @"comment"])
-        {
-            [[[_theData annotations] lastObject] setTitle: _buffer];
-        }
-        if([[attributeDict valueForKey: @"name"] isEqualToString: @"upVotes"])
-        {
-            [[[_theData annotations] lastObject] setSubtitle: _buffer];
-        }
-        if([[attributeDict valueForKey: @"name"] isEqualToString: @"longitude"])
-        {
-            [[[_theData annotations] lastObject] setCoordinate: CLLocationCoordinate2DMake(_buffer.integerValue, 0)];
-        }
-        if([[attributeDict valueForKey: @"name"] isEqualToString: @"title"])
-        {
-            MKPointAnnotation *temp = [[_theData annotations] lastObject];
-            [[[_theData annotations] lastObject] setCoordinate: CLLocationCoordinate2DMake(temp.coordinate.latitude, _buffer.integerValue)];
-        }
-    }
-}
-
-- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
-{
-    _buffer = string;
-}
-
-
-- (void) mapView:(MKMapView *) mapView didDeselectAnnotationView:(MKAnnotationView *) view
-{
-    if([view.annotation isEqual: _mapView.userLocation])
-    {
-        _adder.hidden = NO;
-        _transparentFrame.hidden = NO;
-        _mapView.userInteractionEnabled = NO;
-    }
-}
+} 
 
 - (NSArray *) makeAnnotationsList
 {
@@ -185,23 +112,48 @@ NSString *pull_URL = @"http://localhost:8000/maptap/pull/";
 }
 
 
-- (IBAction)returnPressed:(id)sender {
+- (IBAction)returnPressed:(id)sender
+{
     [sender resignFirstResponder];
 }
 
-- (IBAction)done:(id)sender {
+
+- (IBAction)okPressed:(UIButton *)sender
+{
     [_location resignFirstResponder];
     [_comments resignFirstResponder];
-    _adder.hidden = YES;
-    _transparentFrame.hidden = YES;
+    _container.hidden = YES;
     _mapView.userInteractionEnabled = YES;
 }
 
-- (IBAction)cancel:(id)sender {
+- (IBAction)cancelPressed:(UIButton *)sender
+{
     [_location resignFirstResponder];
     [_comments resignFirstResponder];
-    _adder.hidden = YES;
-    _transparentFrame.hidden = YES;
+    _container.hidden = YES;
     _mapView.userInteractionEnabled = YES;
 }
+
+- (IBAction)longPress:(UILongPressGestureRecognizer *)sender
+{
+    NSLog(@"HERE");
+    _mapView.userInteractionEnabled = NO;
+    [_container setCenter: [sender locationInView:self.mapView]];
+    _container.hidden = NO;
+
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+
+    CLLocationCoordinate2D coord = [self.mapView convertPoint:[sender locationInView: self.mapView] toCoordinateFromView: self.mapView];
+
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
+
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        if (error){
+            NSLog(@"Geocode failed with error: %@", error);
+        }
+        NSLog(@"Received placemarks: %@", placemarks);
+        _location.text = [placemarks[0] description];
+    }];
+}
+
 @end

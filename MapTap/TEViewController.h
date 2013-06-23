@@ -8,28 +8,30 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 #import "TEDataModel.h"
+#import "TEClient.h"
 
 @interface TEViewController : UIViewController <MKMapViewDelegate, NSXMLParserDelegate, NSURLConnectionDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
-// Model area
-@property (strong) TEDataModel *theData;
-@property (weak, nonatomic) IBOutlet UIView *adder;
-@property (weak, nonatomic) IBOutlet UIView *transparentFrame;
+// View container
+@property (weak, nonatomic) IBOutlet UIView *container;
 
 // Text fields
 @property (weak, nonatomic) IBOutlet UITextField *location;
-@property (weak, nonatomic) IBOutlet UITextField *comments;
-
-// Server
-@property (strong) NSURLConnection *modelsAnnotations;
-
+@property (weak, nonatomic) IBOutlet UITextView *comments;
 
 // Actions
-- (IBAction)returnPressed:(id)sender;
-- (IBAction)done:(id)sender;
-- (IBAction)cancel:(id)sender;
+- (IBAction)okPressed:(UIButton *)sender;
+- (IBAction)cancelPressed:(UIButton *)sender;
+- (IBAction)longPress:(UILongPressGestureRecognizer *)sender;
+
+// Server
+@property (strong) TEClient *HTTPClient;
+
+// Model area
+@property (strong, nonatomic) TEDataModel *theData;
 
 @end
